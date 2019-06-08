@@ -22,7 +22,10 @@ configuration NewTestEnvironment {
                 xADOrganizationalUnit $_ {
                     Ensure    = 'Present'
                     Name      = ($_ -replace '-')
-                    Path      = ('DC={0},DC={1}' -f ($ConfigurationData.NonNodeData.DomainName -split '\.')[0], ($ConfigurationData.NonNodeData.DomainName -split '\.')[1])
+                    Path      = ('DC={0},DC={1},DC={2}' -f 
+                        ($ConfigurationData.NonNodeData.DomainName -split '\.')[0],
+                        ($ConfigurationData.NonNodeData.DomainName -split '\.')[1],
+                        ($ConfigurationData.NonNodeData.DomainName -split '\.')[2])
                     DependsOn = '[xADDomain]ADDomain'
                 }
             })
@@ -35,7 +38,10 @@ configuration NewTestEnvironment {
                     SurName    = $_.LastName
                     UserName   = ('{0}{1}' -f $_.FirstName.SubString(0, 1), $_.LastName)
                     Department = $_.Department
-                    Path       = ("OU={0},DC={1},DC={2}" -f $_.Department, ($ConfigurationData.NonNodeData.DomainName -split '\.')[0], ($ConfigurationData.NonNodeData.DomainName -split '\.')[1])
+                    Path      = ('OU={0},DC={1},DC={2},DC={3}' -f $_.Department,
+                        ($ConfigurationData.NonNodeData.DomainName -split '\.')[0],
+                        ($ConfigurationData.NonNodeData.DomainName -split '\.')[1],
+                        ($ConfigurationData.NonNodeData.DomainName -split '\.')[2])
                     JobTitle   = $_.Title
                     Password   = $defaultAdUserCred
                     DependsOn  = '[xADDomain]ADDomain'
