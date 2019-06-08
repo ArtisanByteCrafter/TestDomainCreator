@@ -6,15 +6,15 @@
             PsDscAllowPlainTextPassword = $true
 		},
 		@{
-			NodeName = 'LABDC'
+			NodeName = 'DC1'
             Purpose = 'Domain Controller'
             WindowsFeatures = 'AD-Domain-Services'
         }
     )
     NonNodeData = @{
-        DomainName = 'mytestlab.local'
-        AdGroups = 'Accounting','Information Systems','Executive Office','Janitorial Services'
-        OrganizationalUnits = 'Accounting','Information Systems','Executive Office','Janitorial Services'
+        DomainName = 'ad.natelab.us'
+        AdGroups = 'Accounting','Information Technology','Executive Office','Janitorial Services'
+        OrganizationalUnits = 'Accounting','Information Technology','Executive Office','Janitorial Services'
         AdUsers = @(
             @{
                 FirstName = 'Katie'
@@ -23,26 +23,26 @@
                 Title = 'Manager of Accounting'
             }
             @{
-                FirstName = 'Joe'
-                LastName = 'Blow'
-                Department = 'Information Systems'
+                FirstName = 'Nate'
+                LastName = 'Webb'
+                Department = 'Information Technology'
                 Title = 'System Administrator'
             }
             @{
                 FirstName = 'Joe'
                 LastName = 'Schmoe'
-                Department = 'Information Systems'
+                Department = 'Information Technology'
                 Title = 'Software Developer'
             }
             @{
-                FirstName = 'Barack'
-                LastName = 'Obama'
+                FirstName = 'Bill'
+                LastName = 'Murray'
                 Department = 'Executive Office'
                 Title = 'CEO'
             }
             @{
-                FirstName = 'Donald'
-                LastName = 'Trump'
+                FirstName = 'Turd'
+                LastName = 'Ferguson'
                 Department = 'Janitorial Services'
                 Title = 'Custodian'
             }
