@@ -1,5 +1,7 @@
 # Setup a Test Lab with AD domain, OUs, Security Groups and Users
 
+A modification of the great project [here](https://github.com/adbertram/TestDomainCreator) by [Adam Bertram](https://github.com/adbertram)
+
 ## To Create a Test Lab:
 
 **On domain controller, install xActiveDirectory module**
