@@ -1,7 +1,13 @@
 configuration NewTestEnvironment {
+    param(
+        [Parameter(Mandatory)]
+        [PSCredential] $defaultAdUserCred,
+        [Parameter(Mandatory)]
+        [PSCredential] $domainSafeModeCred
+    )
 
     Import-DscResource -ModuleName xActiveDirectory
- 
+
     Node $AllNodes.where( { $_.Purpose -eq 'Domain Controller' }).NodeName {
 
         @($ConfigurationData.NonNodeData.ADGroups).foreach( {
