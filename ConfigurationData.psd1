@@ -9,6 +9,14 @@
 			NodeName = 'DC1'
             Purpose = 'Domain Controller'
             WindowsFeatures = 'AD-Domain-Services'
+        },
+        @{
+			NodeName = 'dscpullserver'
+            Purpose = 'DSC-Pull'
+        },
+        @{
+			NodeName = 'web-server'
+            Purpose = 'IIS'
         }
     )
     NonNodeData = @{
